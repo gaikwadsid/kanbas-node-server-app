@@ -30,9 +30,10 @@ if (process.env.NODE_ENV !== "development") {
     domain: process.env.HTTP_SERVER_DOMAIN,
   };
 }
+app.use(express.json());
 app.use(session(sessionOptions));
   
-app.use(express.json());
+
 UserRoutes(app);
 ModuleRoutes(app);
 CourseRoutes(app);
