@@ -41,6 +41,7 @@ const createUser = async (req, res) => {
     const currentUser = await dao.findUserByCredentials(username, password);
     if (currentUser) {
       req.session["currentUser"] = currentUser;
+      console.log('signin', req.session["currentUser"])
       res.json(currentUser);
     } else {
       res.sendStatus(401);
@@ -54,6 +55,7 @@ const createUser = async (req, res) => {
   };
   const profile = async (req, res) => {
     const currentUser = req.session["currentUser"];
+    console.log('profile', req.session["currentUser"])
     if (currentUser) {
       res.json(currentUser);
     } else {
