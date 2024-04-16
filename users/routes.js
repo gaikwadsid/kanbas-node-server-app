@@ -55,6 +55,7 @@ const createUser = async (req, res) => {
   };
   const profile = async (req, res) => {
     const currentUser = req.session["currentUser"];
+    console.log('sessp', req.session);
     console.log('profile', req.session["currentUser"])
     if (currentUser) {
       res.json(currentUser);
